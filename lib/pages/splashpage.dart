@@ -25,6 +25,7 @@ class SplashPage extends StatelessWidget {
                 width: double.infinity,
                 height: MediaQuery.of(context).size.height * 0.6,
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
                       width: 337,

@@ -2,7 +2,7 @@
     package="com.example.komik_store">
     <uses-permission android:name="android.permission.INTERNET" />
    <application
-        android:label="komik_store"
+        android:label="Bookery"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
