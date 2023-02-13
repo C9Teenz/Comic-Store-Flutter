@@ -46,7 +46,7 @@ class SplashPage extends StatelessWidget {
                       height: 8,
                     ),
                     Text(
-                      'Your Book Shopping Place',
+                      'Your Comic Book Shopping Place',
                       style: secondaryTextStyle.copyWith(
                           fontWeight: regular, fontSize: 14),
                     )
