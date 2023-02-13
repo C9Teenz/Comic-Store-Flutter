@@ -60,15 +60,21 @@ class AuthController extends GetxController {
 
   Future<void> register() async {
     try {
-      var response = await dio.post('${url}register', data: {
-        'name': nameC.text,
-        'email': emailCR.text,
-        'password': passwordCR.text
-      });
-      if (response.statusCode == 200) {
-        Get.offNamed(Routes.login);
+      if (emailCR.text.isEmpty ||
+          nameC.text.isEmpty ||
+          passwordCR.text.isEmpty) {
+        Get.snackbar('Error', 'Email,name,password tidak boleh kosong');
       } else {
-        Get.snackbar('Error', 'Somethink Wrong');
+        var response = await dio.post('${url}register', data: {
+          'name': nameC.text,
+          'email': emailCR.text,
+          'password': passwordCR.text
+        });
+        if (response.statusCode == 200) {
+          Get.offNamed(Routes.login);
+        } else {
+          Get.snackbar('Error', 'Somethink Wrong');
+        }
       }
     } catch (e) {
       Get.snackbar('Error', 'Somethink Wrong');

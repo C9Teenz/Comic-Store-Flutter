@@ -22,7 +22,7 @@ class WidgetSearch extends StatelessWidget {
               borderRadius: BorderRadius.circular(8),
               borderSide: BorderSide(color: kContainerColor, width: 0.1),
             ),
-            hintText: 'Search manga,genre,author'),
+            hintText: 'Search manga'),
       ),
     );
   }
