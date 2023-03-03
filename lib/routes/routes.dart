@@ -5,4 +5,5 @@ abstract class Routes {
   static const navbar = '/navbar';
   static const detail = '/detail';
   static const checkout = '/checkout';
+  static const transaction = '/transaction';
 }

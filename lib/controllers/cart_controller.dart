@@ -77,9 +77,6 @@ class CartController extends GetxController {
       if (temporaryData.isNotEmpty) {
         for (var element in temporaryData) {
           var response = await dio.get('${url}remove/${element.id}');
-          response.statusCode == 200
-              ? print('has been deleted')
-              : print('error');
         }
       }
     } catch (e) {

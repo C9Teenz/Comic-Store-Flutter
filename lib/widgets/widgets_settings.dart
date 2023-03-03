@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:komik_store/routes/routes.dart';
 
 import '../themes/theme.dart';
 
@@ -10,7 +12,7 @@ class WidgetSettings extends StatelessWidget {
     final double height = MediaQuery.of(context).size.height;
     return Container(
       width: double.infinity,
-      height: height * 0.2,
+      height: height * 0.4,
       color: kWhiteColor,
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Column(
@@ -29,7 +31,7 @@ class WidgetSettings extends StatelessWidget {
           ),
           Container(
             width: double.infinity,
-            height: height * 0.11,
+            height: height * 0.2,
             color: kWhiteColor,
             child: Column(
               children: [
@@ -72,6 +74,34 @@ class WidgetSettings extends StatelessWidget {
                         color: Color(0xff94A3B8),
                       )
                     ],
+                  ),
+                ),
+                Container(
+                  height: 3,
+                  width: double.infinity,
+                  color: kContainerColor,
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Get.toNamed(Routes.transaction);
+                  },
+                  child: Container(
+                    width: double.infinity,
+                    height: height * 0.05,
+                    color: kWhiteColor,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'My Transaction',
+                          style: secondaryTextStyle.copyWith(fontSize: 16),
+                        ),
+                        const Icon(
+                          Icons.keyboard_arrow_right_outlined,
+                          color: Color(0xff94A3B8),
+                        )
+                      ],
+                    ),
                   ),
                 ),
                 Container(

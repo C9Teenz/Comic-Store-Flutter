@@ -60,11 +60,6 @@ class ComicController extends GetxController {
         for (var element in cart.temporaryData) {
           var response = await dio.put('${url}editstock/${element.comics.id}',
               data: {'stock': element.comics.stock - element.quantity});
-          if (response.statusCode == 200) {
-            print('has been updated');
-          } else {
-            print('error');
-          }
         }
       }
     } catch (e) {

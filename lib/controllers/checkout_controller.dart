@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import 'package:komik_store/controllers/cart_controller.dart';
 import 'package:komik_store/routes/routes.dart';
 
@@ -23,7 +24,8 @@ class CheckoutController extends GetxController {
   // }
   var dio = Dio();
   Future<void> addTransaction() async {
-    var data = {'total': totalPayment.value};
+    var carts = cart.temporaryData.map((element) => element.toJson()).toList();
+    var data = {'total': totalPayment.value, 'carts': carts};
     dio.options.headers['content-Type'] = 'application/json';
     dio.options.headers["Authorization"] = "Bearer ${auth.token}";
     try {
@@ -43,7 +45,7 @@ class CheckoutController extends GetxController {
                           image: AssetImage('assets/success.png'))),
                 ),
                 Text(
-                  'Payment Success!',
+                  'Checkout Success!',
                   style:
                       whiteTextStyle.copyWith(fontSize: 20, fontWeight: bold),
                 ),
@@ -51,7 +53,7 @@ class CheckoutController extends GetxController {
                   height: 4,
                 ),
                 Text(
-                  'Your item has been paid successfully',
+                  'Your item has been successfully checked out',
                   style: whiteTextStyle.copyWith(fontSize: 12),
                 ),
                 const SizedBox(
@@ -60,7 +62,7 @@ class CheckoutController extends GetxController {
                 CustomButton(
                   title: 'Back To Home',
                   onPressed: () {
-                    back();
+                    Get.toNamed(Routes.navbar);
                   },
                   bgColor: kWhiteColor,
                   textStyle: blueTextStyle.copyWith(
@@ -68,8 +70,6 @@ class CheckoutController extends GetxController {
                 )
               ],
             ));
-      } else {
-        print('Payement failed');
       }
     } catch (e) {
       throw Exception(e);

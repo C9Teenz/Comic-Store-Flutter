@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:komik_store/controllers/cart_controller.dart';
 import 'package:komik_store/controllers/checkout_controller.dart';
-import 'package:komik_store/controllers/comic_controller.dart';
+// import 'package:komik_store/controllers/comic_controller.dart';
 import 'package:komik_store/themes/theme.dart';
 import 'package:komik_store/widgets/custom_button.dart';
 import 'package:komik_store/widgets/custom_checkout_card.dart';
@@ -15,7 +15,7 @@ class CheckoutPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final checkout = Get.put(CheckoutController());
     CartController cart = Get.find();
-    ComicController comic = Get.find();
+    // ComicController comic = Get.find();
     Widget header() {
       return Container(
         padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -317,8 +317,8 @@ class CheckoutPage extends StatelessWidget {
                   textStyle: whiteTextStyle.copyWith(
                       fontSize: 14, fontWeight: semiBold),
                   onPressed: () {
-                    comic.editStockComic().then((_) => comic.getComic());
-                    cart.deleteCart().then((_) => cart.getCartUser());
+                    // comic.editStockComic().then((_) => comic.getComic());
+                    // cart.deleteCart().then((_) => cart.getCartUser());
                     checkout.addTransaction();
                   },
                   width: MediaQuery.of(context).size.width * 0.4,
